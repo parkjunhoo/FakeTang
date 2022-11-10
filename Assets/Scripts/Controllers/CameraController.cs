@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    //카메라 컨트롤러 주석
-=======
 
     /// <summary>
     /// dtdtdtdtd
     /// </summary>
->>>>>>> Stashed changes
     GameObject _player = null;
     Camera _mainCamera = null;
     Vector3 _delta = new Vector3(0, 0, -10);
