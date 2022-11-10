@@ -57,4 +57,8 @@ public class Define : MonoBehaviour
     {
         Flyingeye,
     }
+    public enum Item
+    {
+        Coin,
+    }
 }
