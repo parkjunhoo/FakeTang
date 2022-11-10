@@ -1,0 +1,44 @@
+{
+    "unnamedSkillStats": [
+        {
+            "level": "1",
+            "attack": "2",
+            "coolTime": "3.0",
+            "moveSpeed":"7.0",
+            "attackRange":"10.0",
+            "subText":"unnamedSkill"
+        },
+        {
+            "level": "2",
+            "attack": "2.2",
+            "coolTime": "3.0",
+            "moveSpeed":"7.5",
+            "attackRange":"12.0",
+            "subText":"unnamedSkill level2"
+        },
+        {
+            "level": "3",
+            "attack": "2.4",
+            "coolTime": "3.0",
+            "moveSpeed":"8.0",
+            "attackRange":"13.0",
+            "subText":"unnamedSkill level3"
+        },
+        {
+            "level": "4",
+            "attack": "2.6",
+            "coolTime": "3.0",
+            "moveSpeed":"8.5",
+            "attackRange":"14.0",
+            "subText":"unnamedSkill level4"
+        },
+        {
+            "level": "5",
+            "attack": "3.0",
+            "coolTime": "3.0",
+            "moveSpeed":"10.0",
+            "attackRange":"15.0",
+            "subText":"unnamedSkill level5"
+        }
+    ]
+}

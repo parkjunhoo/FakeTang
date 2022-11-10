@@ -1,0 +1,94 @@
+{
+    "playerStats": [
+        {
+            "level": "1",
+            "hp": "300",
+            "maxHp": "300",
+            "attack": "30",
+            "defense":"5",
+            "moveSpeed":"4.0",
+            "maxExp":"100"
+        },
+        {
+            "level": "2",
+            "hp": "350",
+            "maxHp": "350",
+            "attack": "60",
+            "defense":"10",
+            "moveSpeed":"4.0",
+            "maxExp":"300"
+        },
+        {
+            "level": "3",
+            "hp": "400",
+            "maxHp": "400",
+            "attack": "90",
+            "defense":"15",
+            "moveSpeed":"4.0",
+            "maxExp":"600"
+        },
+        {
+            "level": "4",
+            "hp": "400",
+            "maxHp": "400",
+            "attack": "90",
+            "defense":"15",
+            "moveSpeed":"4.0",
+            "maxExp":"1200"
+        },
+        {
+            "level": "5",
+            "hp": "400",
+            "maxHp": "400",
+            "attack": "90",
+            "defense":"15",
+            "moveSpeed":"4.0",
+            "maxExp":"2400"
+        },
+        {
+            "level": "6",
+            "hp": "400",
+            "maxHp": "400",
+            "attack": "90",
+            "defense":"15",
+            "moveSpeed":"4.0",
+            "maxExp":"2400"
+        },
+        {
+            "level": "7",
+            "hp": "400",
+            "maxHp": "400",
+            "attack": "90",
+            "defense":"15",
+            "moveSpeed":"4.0",
+            "maxExp":"2400"
+        },
+        {
+            "level": "8",
+            "hp": "400",
+            "maxHp": "400",
+            "attack": "90",
+            "defense":"15",
+            "moveSpeed":"4.0",
+            "maxExp":"2400"
+        },
+        {
+            "level": "9",
+            "hp": "400",
+            "maxHp": "400",
+            "attack": "90",
+            "defense":"15",
+            "moveSpeed":"4.0",
+            "maxExp":"2400"
+        },
+        {
+            "level": "10",
+            "hp": "400",
+            "maxHp": "400",
+            "attack": "90",
+            "defense":"15",
+            "moveSpeed":"4.0",
+            "maxExp":"2400"
+        }
+    ]
+}

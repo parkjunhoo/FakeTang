@@ -1,0 +1,44 @@
+{
+    "energyBoltStats": [
+        {
+            "level": "1",
+            "attack": "1.5",
+            "coolTime": "1.0",
+            "moveSpeed":"20.0",
+            "attackRange":"10.0",
+            "subText":"Fires an energy bolt at nearby enemies."
+        },
+        {
+            "level": "2",
+            "attack": "1.55",
+            "coolTime": "1.0",
+            "moveSpeed":"22.5",
+            "attackRange":"12.0",
+            "subText":"Energy bolt damage and movement speed increase."
+        },
+        {
+            "level": "3",
+            "attack": "1.6",
+            "coolTime": "1.0",
+            "moveSpeed":"25.0",
+            "attackRange":"13.0",
+            "subText":"Energy bolt damage and movement speed increase."
+        },
+        {
+            "level": "4",
+            "attack": "1.65",
+            "coolTime": "1.0",
+            "moveSpeed":"27.5",
+            "attackRange":"14.0",
+            "subText":"Energy bolt damage and movement speed increase."
+        },
+        {
+            "level": "5",
+            "attack": "1.8",
+            "coolTime": "0.1",
+            "moveSpeed":"30.0",
+            "attackRange":"15.0",
+            "subText":"Increases energy bolt damage and movement speed."
+        }
+    ]
+}
