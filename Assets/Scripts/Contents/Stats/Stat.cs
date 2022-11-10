@@ -23,26 +23,4 @@ public class Stat : MonoBehaviour
     public int Attack { get { return _attack; } set { _attack = value; } }
     public int Defence { get { return _defense; } set { _defense = value; } }
     public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value; } }
-
-    private void Start()
-    {
-        SetStat(1);
-    }
-
-    private void OnEnable()
-    {
-        SetStat(1);
-    }
-
-    public virtual void SetStat(int level)
-    {
-        Dictionary<int, Data.Stat> dict = Managers.Data.StatDict;
-        Data.Stat stat = dict[level];
-        _level = stat.level;
-        _hp = stat.hp;
-        _maxHp = stat.maxHp;
-        _attack = stat.attack;
-        _defense = stat.defense;
-        _moveSpeed = stat.moveSpeed;
-    }
 }

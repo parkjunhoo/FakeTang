@@ -2,47 +2,47 @@
     "setelliteStats": [
         {
             "level": "1",
-            "attack": "1.5",
+            "attack": "2",
             "coolTime": "1.0",
             "moveSpeed":"300.0",
-            "attackRange":"1.2",
+            "attackRange":"0.8",
             "maxCount":"1",
             "subText":"Summon setellite Around Player"
         },
         {
             "level": "2",
-            "attack": "1.55",
+            "attack": "2.2",
             "coolTime": "1.0",
             "moveSpeed":"320.0",
-            "attackRange":"1.2",
+            "attackRange":"0.8",
             "maxCount":"2",
             "subText":"Setellite damage and movement speed increase."
         },
         {
             "level": "3",
-            "attack": "1.6",
+            "attack": "2.4",
             "coolTime": "1.0",
             "moveSpeed":"340.0",
-            "attackRange":"1.2",
+            "attackRange":"0.8",
             "maxCount":"3",
             "subText":"Setellite damage and movement speed increase."
         },
         {
             "level": "4",
-            "attack": "1.65",
+            "attack": "2.6",
             "coolTime": "1.0",
             "moveSpeed":"360.0",
-            "attackRange":"1.2",
+            "attackRange":"0.8",
             "maxCount":"4",
             "subText":"Setellite damage and movement speed increase."
         },
         {
             "level": "5",
-            "attack": "1.8",
+            "attack": "3",
             "coolTime": "0.1",
-            "moveSpeed":"1500.0",
-            "attackRange":"1.2",
-            "maxCount":"10",
+            "moveSpeed":"2000.0",
+            "attackRange":"0.8",
+            "maxCount":"12",
             "subText":"Setellite damage and movement speed increase."
         }
     ]

@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 4098419033348390828}
   - component: {fileID: 4869776792596871052}
   - component: {fileID: 7544967811474538350}
-  - component: {fileID: 4967031079283654261}
   - component: {fileID: 5854952098497739494}
   - component: {fileID: 6213028130365571848}
   - component: {fileID: 909949806506431759}
+  - component: {fileID: -2172414551710140039}
   m_Layer: 7
   m_Name: Flyingeye
   m_TagString: Untagged
@@ -124,25 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458bfa1068c5e5744a39d48f10ff905f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _givingExp: 50
---- !u!114 &4967031079283654261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7635234019777467190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b143cd1dc0d26345857a27c28b54665, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _level: 0
-  _hp: 0
-  _maxHp: 0
-  _attack: 0
-  _defense: 0
-  _moveSpeed: 0
+  _givingExp: 1
 --- !u!58 &5854952098497739494
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -192,3 +174,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUsing: 0
+--- !u!114 &-2172414551710140039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635234019777467190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5419a990ac47b6f41bede211c84dd87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: 0
+  _hp: 0
+  _maxHp: 0
+  _attack: 0
+  _defense: 0
+  _moveSpeed: 0
+  _exp: 0

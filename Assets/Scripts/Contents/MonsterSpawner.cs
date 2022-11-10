@@ -10,8 +10,12 @@ public class MonsterSpawner : MonoBehaviour
 
     [SerializeField]
     int _monsterCount = 0;
-
     public static int MonsterCount { get { return Instance._monsterCount; } set { Instance._monsterCount = value; } }
+
+    int _monsterLevel = 1;
+    public static int MonsterLevel { get { return Instance._monsterLevel; } set { Instance._monsterLevel = value; } }
+
+
     [SerializeField]
     int _reserveCount = 0;
 
@@ -62,6 +66,7 @@ public class MonsterSpawner : MonoBehaviour
 
         //GameObject obj = Managers.Resource.Instantiate("Monsters/Flyingeye");
         GameObject obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Monsters/Flyingeye");
+        obj.GetComponent<MonsterStat>().SetStat(_monsterLevel);
         Vector3 randPos = new Vector3(x, y, 0);
         obj.transform.position = randPos;
 

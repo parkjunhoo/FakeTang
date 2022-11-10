@@ -5,8 +5,7 @@ using static PlayerController;
 
 public class MonsterController : MonoBehaviour
 {
-    Stat _stat;
-    [SerializeField] int _givingExp = 1;
+    MonsterStat _stat;
     Rigidbody2D rigid;
     GameObject target;
     Animator anim;
@@ -26,7 +25,7 @@ public class MonsterController : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player");
-        _stat = GetComponent<Stat>();
+        _stat = GetComponent<MonsterStat>();
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -93,7 +92,7 @@ public class MonsterController : MonoBehaviour
     {
         MonsterSpawner.MonsterCount--;
         target.GetComponent<PlayerStat>().KillingCount++;
-        target.GetComponent<PlayerStat>().Exp += _givingExp;
+        target.GetComponent<PlayerStat>().Exp += _stat.Exp;
         Managers.Game.Despawn(gameObject);
     }
 }

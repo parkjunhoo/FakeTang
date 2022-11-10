@@ -49,8 +49,12 @@ public class Define : MonoBehaviour
 
     public enum ActiveSkill
     {
-        EnergyBolt = 0,
-        UnnamedSkill = 1,
-        Setellite = 2,
+        EnergyBolt,
+        UnnamedSkill,
+        Setellite,
+    }
+    public enum Monster
+    {
+        Flyingeye,
     }
 }

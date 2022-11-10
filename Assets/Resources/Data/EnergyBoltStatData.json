@@ -2,7 +2,7 @@
     "energyBoltStats": [
         {
             "level": "1",
-            "attack": "1.5",
+            "attack": "2",
             "coolTime": "1.0",
             "moveSpeed":"20.0",
             "attackRange":"10.0",
@@ -10,7 +10,7 @@
         },
         {
             "level": "2",
-            "attack": "1.55",
+            "attack": "2.5",
             "coolTime": "1.0",
             "moveSpeed":"22.5",
             "attackRange":"12.0",
@@ -18,7 +18,7 @@
         },
         {
             "level": "3",
-            "attack": "1.6",
+            "attack": "3",
             "coolTime": "1.0",
             "moveSpeed":"25.0",
             "attackRange":"13.0",
@@ -26,7 +26,7 @@
         },
         {
             "level": "4",
-            "attack": "1.65",
+            "attack": "3.5",
             "coolTime": "1.0",
             "moveSpeed":"27.5",
             "attackRange":"14.0",
@@ -34,8 +34,8 @@
         },
         {
             "level": "5",
-            "attack": "1.8",
-            "coolTime": "0.1",
+            "attack": "3",
+            "coolTime": "0.5",
             "moveSpeed":"30.0",
             "attackRange":"15.0",
             "subText":"Increases energy bolt damage and movement speed."

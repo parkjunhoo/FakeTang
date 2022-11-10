@@ -30,13 +30,13 @@ public class PlayerStat : Stat
     public int KillingCount { get { return _killingCount; } set { _killingCount = value; } }
 
 
-    public void Start()
+    public void Awake()
     {
         SetStat(1);
         _exp = 0;
         _gold = 0;
     }
-    public override void SetStat(int level)
+    public void SetStat(int level)
     {
         Dictionary<int, Data.PlayerStat> dict = Managers.Data.PlayerStatDict;
         Data.PlayerStat stat = dict[level];

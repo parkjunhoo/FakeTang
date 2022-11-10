@@ -6,31 +6,7 @@ using static PlayerController;
 
 namespace Data
 {
-    #region Stat
-    [Serializable]
-    public class Stat
-    {
-        public int level;
-        public int hp;
-        public int maxHp;
-        public int attack;
-        public int defense;
-        public float moveSpeed;
-    }
-
-    [Serializable]
-    public class StatData : ILoader<int, Stat>
-    {
-        public List<Stat> stats = new List<Stat>();
-
-        public Dictionary<int, Stat> MakeDict()
-        {
-            Dictionary<int, Stat> dict = new Dictionary<int, Stat>();
-            foreach (Stat stat in stats) dict.Add(stat.level, stat);
-            return dict;
-        }
-    }
-    #endregion
+    #region PlayerStat
 
     #region PlayerStat
     [Serializable]
@@ -59,9 +35,42 @@ namespace Data
     }
     #endregion
 
+    #endregion
+
+    #region MonsterStat
+
+    #region FlyingeyeStat
+    [Serializable]
+    public class FlyingeyeStat
+    {
+        public int level;
+        public int hp;
+        public int maxHp;
+        public int attack;
+        public int defense;
+        public float moveSpeed;
+        public int exp;
+    }
+
+    [Serializable]
+    public class FlyingeyeStatData : ILoader<int, FlyingeyeStat>
+    {
+        public List<FlyingeyeStat> flyingeyeStats = new List<FlyingeyeStat>();
+
+        public Dictionary<int, FlyingeyeStat> MakeDict()
+        {
+            Dictionary<int, FlyingeyeStat> dict = new Dictionary<int, FlyingeyeStat>();
+            foreach (FlyingeyeStat stat in flyingeyeStats) dict.Add(stat.level, stat);
+            return dict;
+        }
+    }
+    #endregion
+
+    #endregion
 
 
 
+    #region SkillStat
 
     #region EnergyBoltStat
     [Serializable]
@@ -140,5 +149,7 @@ namespace Data
             return dict;
         }
     }
+    #endregion
+
     #endregion
 }
