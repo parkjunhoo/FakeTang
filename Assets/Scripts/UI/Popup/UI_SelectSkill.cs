@@ -87,12 +87,11 @@ public class UI_SelectSkill : UI_Popup
 
 
         // 만랩인스킬 구별을위한 리스트
-        List<int> maxLevelActiveSkills = new List<int>(); 
+        List<int> maxLevelActiveSkills = new List<int>();
         foreach (var entry in _activeSkillTree)
         {
-            int i = 0;
+            
             if (_activeSkillTree[entry.Key] == 5) maxLevelActiveSkills.Add(entry.Key);
-            i++;
         }
 
         //뽑을수 있는 스킬 리스트
@@ -130,6 +129,13 @@ public class UI_SelectSkill : UI_Popup
                 Data.UnnamedSkillStat unnamedSkillStat = unnamedSkillDict[level];
                 name = "UnnamedSkill";
                 subText = unnamedSkillStat.subText;
+                break;
+
+            case (int)Define.ActiveSkill.Setellite:
+                Dictionary<int, Data.SetelliteStat> setelliteDict = Managers.Data.SetelliteStatDict;
+                Data.SetelliteStat setelliteStat = setelliteDict[level];
+                name = "Setellite";
+                subText = setelliteStat.subText;
                 break;
         }
         skillInfo = new SkillInfo(RandomKey, name, subText, level); //뽑은 재료로 스킬인포구조체 생성

@@ -21,19 +21,20 @@ public class Skill : MonoBehaviour
     public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value; } }
     public float AttackRange { get { return _attackRange; } set { _attackRange = value; } }
     public int Damage { get { return _damage; } set { _damage = value; } }
+    public GameObject Player { get { return _player; }}
 
     Rigidbody2D rigid;
-    GameObject player;
+    GameObject _player;
     int playerAttack;
 
     protected virtual void Init()
     {
         SetStat(1);
         rigid = gameObject.GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        transform.position = player.transform.position;
+        _player = GameObject.FindGameObjectWithTag("Player");
+        transform.position = Player.transform.position;
         targetPos = Vector3.zero;
-        playerAttack = player.GetComponent<PlayerStat>().Attack;
+        playerAttack = _player.GetComponent<PlayerStat>().Attack;
         _damage = (int)((float)playerAttack * _attack);
     }
     private void Start()
@@ -46,10 +47,6 @@ public class Skill : MonoBehaviour
     {
 
     }
-
-
-
-
 
     protected void TraceEnemy()
     {

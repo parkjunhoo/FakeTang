@@ -38,6 +38,7 @@ public class GameScene : BaseScene
         GameObject Joystick = Managers.Resource.Instantiate("UI/SubItem/Joystick/FloatingJoystick");
         Joystick.transform.SetParent(GameObject.FindGameObjectWithTag("Hud").transform, false);
         Joystick.transform.SetAsFirstSibling();
+
     }
     public override void Clear()
     {

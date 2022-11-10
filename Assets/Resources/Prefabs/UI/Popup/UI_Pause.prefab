@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8947521662053793999}
   - component: {fileID: 3411200193655761070}
   m_Layer: 5
-  m_Name: ActiveSkill1
+  m_Name: ActiveSkill4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 4553768319438105853}
   - component: {fileID: 693245706195020452}
   m_Layer: 5
-  m_Name: ActiveSkillSlot1 (2)
+  m_Name: ActiveSkillSlot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 58.9
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 2023553745952412907}
   - component: {fileID: 3804523242944801335}
   m_Layer: 5
-  m_Name: ActiveSkillSlot1 (1)
+  m_Name: ActiveSkillSlot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1129,7 +1129,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1837,7 +1837,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 14.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1973,7 +1973,7 @@ GameObject:
   - component: {fileID: 454171330998619819}
   - component: {fileID: 2610943353416398236}
   m_Layer: 5
-  m_Name: ActiveSkillSlot1 (4)
+  m_Name: ActiveSkillSlot5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2126,7 +2126,7 @@ GameObject:
   - component: {fileID: 8053001839215780697}
   - component: {fileID: 839957076408613866}
   m_Layer: 5
-  m_Name: ActiveSkill1
+  m_Name: ActiveSkill2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2202,7 +2202,7 @@ GameObject:
   - component: {fileID: 9054157733270470219}
   - component: {fileID: 1532198883728299204}
   m_Layer: 5
-  m_Name: ActiveSkillSlot1 (3)
+  m_Name: ActiveSkillSlot4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2279,7 +2279,7 @@ GameObject:
   - component: {fileID: 8985538843675793506}
   - component: {fileID: 5969998818029035023}
   m_Layer: 5
-  m_Name: ActiveSkill1
+  m_Name: ActiveSkill3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2355,7 +2355,7 @@ GameObject:
   - component: {fileID: 4458229853301965810}
   - component: {fileID: 789676328268998596}
   m_Layer: 5
-  m_Name: ActiveSkill1
+  m_Name: ActiveSkill5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

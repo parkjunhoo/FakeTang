@@ -79,11 +79,11 @@ public class UI_Pause : UI_Popup
 
     public void Refresh()
     {
+        
         Dictionary<int, int> _activeSkillTree = _player.GetComponent<PlayerController>().ActiveSkillTree;
+        int i = 0;
         foreach (var entry in _activeSkillTree)
         {
-            int i = 0;
-            
             ActiveSkills[i].sprite = Managers.Resource.Load<Sprite>($"Sprites/Skills/{Enum.GetName(typeof(Define.ActiveSkill), entry.Key)}/icon");
             i++;
         }

@@ -114,4 +114,31 @@ namespace Data
         }
     }
     #endregion
+
+    #region SetelliteStat
+    [Serializable]
+    public class SetelliteStat
+    {
+        public int level;
+        public float attack;
+        public float coolTime;
+        public float moveSpeed;
+        public float attackRange;
+        public int maxCount;
+        public string subText;
+    }
+
+    [Serializable]
+    public class SetelliteStatData : ILoader<int, SetelliteStat>
+    {
+        public List<SetelliteStat> setelliteStats = new List<SetelliteStat>();
+
+        public Dictionary<int, SetelliteStat> MakeDict()
+        {
+            Dictionary<int, SetelliteStat> dict = new Dictionary<int, SetelliteStat>();
+            foreach (SetelliteStat stat in setelliteStats) dict.Add(stat.level, stat);
+            return dict;
+        }
+    }
+    #endregion
 }

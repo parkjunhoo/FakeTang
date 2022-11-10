@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
 
     Dictionary<int, int> _activeSkillTree = new Dictionary<int, int>();
-
     public Dictionary<int, int> ActiveSkillTree { get { return _activeSkillTree; } }
 
 
@@ -24,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     bool isEnergyBoltCool = false;
     bool isUnnamedSkillCool = false;
+    bool isSetelliteCool = false;
+    public int setelliteCount;
 
 
     float damageDelay = 0.3f;
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Instance = this;
+        setelliteCount = 0;
         _activeSkillTree.Add((int)Define.ActiveSkill.EnergyBolt, 1);
         _stat = GetComponent<PlayerStat>();
         rigid = GetComponent<Rigidbody2D>();
@@ -130,6 +132,19 @@ public class PlayerController : MonoBehaviour
                         StartCoroutine(UnnamedSkillDelay(coolTime));
                     }
                     break;
+
+                case (int)Define.ActiveSkill.Setellite:
+                    if (!isSetelliteCool)
+                    {
+                        int maxCount = Managers.Data.SetelliteStatDict[skillLevel].maxCount;
+                        if (setelliteCount >= maxCount) break;
+                        useSkill(Define.ActiveSkill.Setellite, skillLevel);
+                        setelliteCount++;
+                        isSetelliteCool = true;
+                        float coolTime = Managers.Data.SetelliteStatDict[skillLevel].coolTime;
+                        StartCoroutine(SetelliteDelay(coolTime));
+                    }
+                    break;
             }
         }
     }
@@ -154,6 +169,8 @@ public class PlayerController : MonoBehaviour
         string skillName = Enum.GetName(typeof(Define.ActiveSkill), skill);
         Managers.Resource.Instantiate($"Skills/{skillName}").GetComponent<Skill>().SetStat(level);
     }
+
+    #region Skill Coroutine
     IEnumerator EnergyBoltDelay(float coolTime)
     {
         yield return new WaitForSeconds(coolTime);
@@ -166,7 +183,13 @@ public class PlayerController : MonoBehaviour
         isUnnamedSkillCool = false;
 
     }
+    IEnumerator SetelliteDelay(float coolTime)
+    {
+        yield return new WaitForSeconds(coolTime);
+        isSetelliteCool = false;
 
+    }
+    #endregion
     IEnumerator DamageDelay()
     {
         yield return new WaitForSeconds(damageDelay);
