@@ -67,6 +67,34 @@ namespace Data
     }
     #endregion
 
+    #region GoblinStat
+    [Serializable]
+    public class GoblinStat
+    {
+        public int level;
+        public int hp;
+        public int maxHp;
+        public int attack;
+        public int defense;
+        public float moveSpeed;
+        public int exp;
+        public int gold;
+    }
+
+    [Serializable]
+    public class GoblinStatData : ILoader<int, GoblinStat>
+    {
+        public List<GoblinStat> goblinStats = new List<GoblinStat>();
+
+        public Dictionary<int, GoblinStat> MakeDict()
+        {
+            Dictionary<int, GoblinStat> dict = new Dictionary<int, GoblinStat>();
+            foreach (GoblinStat stat in goblinStats) dict.Add(stat.level, stat);
+            return dict;
+        }
+    }
+    #endregion
+
     #endregion
 
 

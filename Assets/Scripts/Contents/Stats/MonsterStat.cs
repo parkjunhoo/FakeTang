@@ -27,24 +27,37 @@ public class MonsterStat : Stat
 
     public void SetStat(int level)
     {
-        
+
         switch (monsterName)
         {
             case "Flyingeye":
-                Dictionary<int, Data.FlyingeyeStat> dict = Managers.Data.FlyingeyeDict;
-                Data.FlyingeyeStat stat = dict[level];
-                _level = stat.level;
-                _hp = stat.hp;
-                _maxHp = stat.maxHp;
-                _attack = stat.attack;
-                _defense = stat.defense;
-                _moveSpeed = stat.moveSpeed;
-                _exp = stat.exp;
-                _gold = stat.gold;
+                Dictionary<int, Data.FlyingeyeStat> flyingeyeDict = Managers.Data.FlyingeyeDict;
+                Data.FlyingeyeStat flyingeyeStat = flyingeyeDict[level];
+                _level = flyingeyeStat.level;
+                _hp = flyingeyeStat.hp;
+                _maxHp = flyingeyeStat.maxHp;
+                _attack = flyingeyeStat.attack;
+                _defense = flyingeyeStat.defense;
+                _moveSpeed = flyingeyeStat.moveSpeed;
+                _exp = flyingeyeStat.exp;
+                _gold = flyingeyeStat.gold;
+                break;
+
+            case "Goblin":
+                Dictionary<int, Data.GoblinStat> goblinDict = Managers.Data.GoblinDict;
+                Data.GoblinStat goblinStat = goblinDict[level];
+                _level = goblinStat.level;
+                _hp = goblinStat.hp;
+                _maxHp = goblinStat.maxHp;
+                _attack = goblinStat.attack;
+                _defense = goblinStat.defense;
+                _moveSpeed = goblinStat.moveSpeed;
+                _exp = goblinStat.exp;
+                _gold = goblinStat.gold;
                 break;
         }
 
-        
+
     }
-    
+
 }

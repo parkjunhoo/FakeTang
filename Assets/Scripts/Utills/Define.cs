@@ -57,6 +57,7 @@ public class Define : MonoBehaviour
     public enum Monster
     {
         Flyingeye,
+        Goblin,
     }
     public enum Item
     {

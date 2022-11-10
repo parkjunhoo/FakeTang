@@ -20,6 +20,7 @@ public class DataManager
 
     #region MonsterDict
     public Dictionary<int, Data.FlyingeyeStat> FlyingeyeDict { get; private set; } = new Dictionary<int, Data.FlyingeyeStat>();
+    public Dictionary<int, Data.GoblinStat> GoblinDict { get; private set; } = new Dictionary<int, Data.GoblinStat>();
     #endregion
 
 
@@ -31,11 +32,17 @@ public class DataManager
 
     public void Init()
     {
-        PlayerStatDict = LoadJson<Data.PlayerStatData, int, Data.PlayerStat>("PlayerStatData").MakeDict();
-        EnergyBoltStatDict = LoadJson<Data.EnergyBoltStatData , int, Data.EnergyBoltStat>("EnergyBoltStatData").MakeDict();
-        UnnamedSkillStatDict = LoadJson<Data.UnnamedSkillStatData, int, Data.UnnamedSkillStat>("UnnamedSkillStatData").MakeDict();
-        SetelliteStatDict = LoadJson<Data.SetelliteStatData, int, Data.SetelliteStat>("SetelliteStatData").MakeDict();
-        FlyingeyeDict = LoadJson<Data.FlyingeyeStatData, int, Data.FlyingeyeStat>("FlyingeyeStatData").MakeDict();
+        PlayerStatDict = LoadJson<Data.PlayerStatData, int, Data.PlayerStat>("Players/PlayerStatData").MakeDict();
+
+        //////////////////////MONSTER////////////////////////
+        FlyingeyeDict = LoadJson<Data.FlyingeyeStatData, int, Data.FlyingeyeStat>("Monsters/FlyingeyeStatData").MakeDict();
+        GoblinDict = LoadJson<Data.GoblinStatData, int, Data.GoblinStat>("Monsters/GoblinStatData").MakeDict();
+
+
+        ////////////////////////SKILL////////////////////////
+        EnergyBoltStatDict = LoadJson<Data.EnergyBoltStatData , int, Data.EnergyBoltStat>("Skills/EnergyBoltStatData").MakeDict();
+        UnnamedSkillStatDict = LoadJson<Data.UnnamedSkillStatData, int, Data.UnnamedSkillStat>("Skills/UnnamedSkillStatData").MakeDict();
+        SetelliteStatDict = LoadJson<Data.SetelliteStatData, int, Data.SetelliteStat>("Skills/SetelliteStatData").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>

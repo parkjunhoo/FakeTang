@@ -20,7 +20,7 @@ public class MonsterSpawner : MonoBehaviour
     int _reserveCount = 0;
 
     [SerializeField]
-    int _keepMonsterCount = 10;
+    int _keepMonsterCount = 15;
 
     //Vector3 _spawnPos;
 
@@ -64,13 +64,30 @@ public class MonsterSpawner : MonoBehaviour
         y_b *= Random.Range(0, 2) == 0 ? -1 : 1;
         float y = y_b + b;
 
-        //GameObject obj = Managers.Resource.Instantiate("Monsters/Flyingeye");
-        GameObject obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Monsters/Flyingeye");
+        GameObject obj;
+        //if (Utill.RandomInHundred(10))
+        //{
+        //    obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Monsters/Goblin");
+        //}
+        //else obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Monsters/Flyingeye");
+        int r = Random.Range(0, 101);
+        switch (r)
+        {
+            case <= 10:
+                obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Monsters/Goblin");
+                break;
+
+            default:
+                obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Monsters/Flyingeye");
+                break;
+        }
+        
+
         obj.GetComponent<MonsterStat>().SetStat(_monsterLevel);
         Vector3 randPos = new Vector3(x, y, 0);
         obj.transform.position = randPos;
 
-        _monsterCount++; //Test
+        _monsterCount++; 
         _reserveCount--;
     }
 }

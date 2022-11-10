@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Utill
 {
+
     public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
     {
         T component = go.GetComponent<T>();
@@ -43,5 +44,12 @@ public class Utill
         }
 
         return null;
+    }
+
+
+    public static bool RandomInHundred(int percent)
+    {
+        if (Random.Range(0, 101) <= percent) return true;
+        return false;
     }
 }

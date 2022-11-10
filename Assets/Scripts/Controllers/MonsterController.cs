@@ -94,7 +94,7 @@ public class MonsterController : MonoBehaviour
         target.GetComponent<PlayerStat>().KillingCount++;
         target.GetComponent<PlayerStat>().Exp += _stat.Exp;
         Managers.Game.Despawn(gameObject);
-        if (Random.Range(0, 11) < 1)
+        if (Utill.RandomInHundred(10))
         {
             GameObject go = Managers.Game.Spawn(Define.WorldObject.Item, "Items/Coin");
             go.GetComponent<Coin>().setGold(_stat.Gold);

@@ -29,11 +29,13 @@ public class GameScene : BaseScene
     {
         base.Init();
         Instance = this;
+
         SceneType = Define.Scene.Game;
         Application.targetFrameRate = 60;
         Time.timeScale = 1f;
 
         Managers.Game.Spawn(Define.WorldObject.Player, "Players/Knight");
+
         Managers.Resource.Instantiate("UI/Scene/UI_Hud");
         GameObject Joystick = Managers.Resource.Instantiate("UI/SubItem/Joystick/FloatingJoystick");
         Joystick.transform.SetParent(GameObject.FindGameObjectWithTag("Hud").transform, false);
