@@ -39,10 +39,6 @@ public class Setellite : Skill
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Setellite")
-        {
-            transform.position *= -1f;
-        }
         if (collision.gameObject.layer == 7)
         {
             Managers.Resource.Destroy(gameObject);

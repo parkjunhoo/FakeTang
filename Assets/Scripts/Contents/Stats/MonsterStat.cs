@@ -9,9 +9,14 @@ public class MonsterStat : Stat
     string monsterName;
     [SerializeField]
     int _exp = 0;
+    int _gold = 1;
     public int Exp
     {
         get { return _exp; }
+    }
+    public int Gold
+    {
+        get { return _gold; }
     }
     private void Awake()
     {
@@ -35,6 +40,7 @@ public class MonsterStat : Stat
                 _defense = stat.defense;
                 _moveSpeed = stat.moveSpeed;
                 _exp = stat.exp;
+                _gold = stat.gold;
                 break;
         }
 

@@ -10,6 +10,7 @@ public class Define : MonoBehaviour
         Unknown,
         Player,
         Monster,
+        Item,
     }
     public enum Scene
     {

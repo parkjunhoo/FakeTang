@@ -6,9 +6,9 @@ public class GameManager
 {
     GameObject _player;
     //Dictionary<int, GameObject> _players = new Dictionary<int, GameObject>();
-
     //Dictionary<int, GameObject> _monsters = new Dictionary<int, GameObject>();
     HashSet<GameObject> _monsters = new HashSet<GameObject>();
+    HashSet<GameObject> _items = new HashSet<GameObject>();
 
     public GameObject Spawn(Define.WorldObject type, string path , Transform parent = null)
     {
@@ -21,6 +21,9 @@ public class GameManager
             case Define.WorldObject.Player:
                 _player = go;
                 break;
+            case Define.WorldObject.Item:
+                _items.Add(go);
+                break;
         }
 
         return go;
@@ -32,9 +35,10 @@ public class GameManager
         {
             case 3:
                 return Define.WorldObject.Player;
-
             case 7:
                 return Define.WorldObject.Monster;
+            case 8:
+                return Define.WorldObject.Item;
         }
         return Define.WorldObject.Unknown;
     }
@@ -50,6 +54,10 @@ public class GameManager
 
             case Define.WorldObject.Player:
                 if ( _player == go)  _player = null;
+                break;
+
+            case Define.WorldObject.Item:
+                if (_items.Contains(go)) _items.Remove(go);
                 break;
         }
 

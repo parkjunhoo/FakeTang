@@ -50,6 +50,7 @@ namespace Data
         public int defense;
         public float moveSpeed;
         public int exp;
+        public int gold;
     }
 
     [Serializable]
