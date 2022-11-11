@@ -14,6 +14,8 @@ public class PlayerStat : Stat
     [SerializeField]
     int _killingCount=0;
 
+    float _extraSpeed = 1f;
+
 
     public int Exp
     {
@@ -25,6 +27,9 @@ public class PlayerStat : Stat
 
         }
     }
+
+
+    public float ExtraSpeed { get { return _extraSpeed; } set { _extraSpeed = value; } }
     public int MaxExp { get { return _maxExp; } set { _maxExp = value; } }
     public int Gold { get { return _gold; } set { _gold = value; } }
     public int KillingCount { get { return _killingCount; } set { _killingCount = value; } }

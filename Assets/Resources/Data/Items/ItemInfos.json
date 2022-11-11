@@ -4,13 +4,13 @@
             "code": "0",
             "name": "Shoes",
             "subText":"Increase MoveSpeed.",
-            "value": "{'moveSpeed':'1'}"
+            "value": "{'moveSpeed':'1.02'}"
         },
         {
             "code": "1",
             "name": "Sword",
             "subText":"Increase Attack.",
-            "value": "{'attack':'10'}"
+            "value": "{'attack':'5'}"
         }
     ]
 }

@@ -2,9 +2,9 @@
     "playerStats": [
         {
             "level": "1",
-            "hp": "300",
-            "maxHp": "300",
-            "attack": "30",
+            "hp": "1000",
+            "maxHp": "1000",
+            "attack": "100",
             "defense":"5",
             "moveSpeed":"4.0",
             "maxExp":"100"

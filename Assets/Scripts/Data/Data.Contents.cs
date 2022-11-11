@@ -202,7 +202,7 @@ namespace Data
     public class Shoes
     {
         [JsonProperty("moveSpeed")]
-        public int moveSpeed { get; set; }
+        public float moveSpeed { get; set; }
     }
     public class Sword
     {

@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 using static Define;
 using static MonsterController;
 using static UnityEngine.EventSystems.EventTrigger;
+using Newtonsoft.Json;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,11 +16,15 @@ public class PlayerController : MonoBehaviour
     Dictionary<int, int> _activeSkillTree = new Dictionary<int, int>();
     public Dictionary<int, int> ActiveSkillTree { get { return _activeSkillTree; } }
 
+    
+    public Dictionary<string,int> ItemTree = new Dictionary<string, int>();
+
 
 
     PlayerStat _stat;
     Rigidbody2D rigid;
     Animator anim;
+
 
     bool isEnergyBoltCool = false;
     bool isUnnamedSkillCool = false;
@@ -103,7 +108,7 @@ public class PlayerController : MonoBehaviour
         Vector2 inputDir = new Vector2(joyX, joyY).normalized;
         transform.rotation = Quaternion.Euler(new Vector3(0, rotationDir, 0));
         //if (Mathf.Abs(joyX) > 0.3 || Mathf.Abs(joyY) > 0.3) rigid.MovePosition(rigid.position + inputDir * _speed *  Time.deltaTime);
-        rigid.MovePosition(rigid.position + inputDir * _stat.MoveSpeed * Time.fixedDeltaTime);
+        rigid.MovePosition(rigid.position + inputDir * _stat.MoveSpeed *_stat.ExtraSpeed * Time.fixedDeltaTime);
     }
 
     void Attack()
@@ -196,4 +201,17 @@ public class PlayerController : MonoBehaviour
         isDamageDelay = false;
     }
 
+    public void itemApply()
+    {
+        foreach (var entry in ItemTree)
+        {
+            switch (entry.Key)
+            {
+                case "Shoes":
+                    var data = JsonConvert.DeserializeObject<Data.Shoes>(Managers.Data.ItemInfoDict["Shoes"].value);
+                    _stat.ExtraSpeed = data.moveSpeed * entry.Value;
+                    break;
+            }
+        }
+    }
 }

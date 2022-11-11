@@ -100,6 +100,11 @@ public class MonsterController : MonoBehaviour
             go.GetComponent<Coin>().setGold(_stat.Gold);
             go.transform.position = transform.position;
         }
+        if (Utill.RandomInHundred(50))
+        {
+            GameObject go = Managers.Game.Spawn(Define.WorldObject.Item, "Items/Shoes");
+            go.transform.position = transform.position;
+        }
 
     }
 }
