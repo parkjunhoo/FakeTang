@@ -26,6 +26,7 @@ public class Skill : MonoBehaviour
     Rigidbody2D rigid;
     GameObject _player;
     int playerAttack;
+    int extraAttack;
 
     protected virtual void Init()
     {
@@ -34,13 +35,14 @@ public class Skill : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player");
         transform.position = Player.transform.position;
         targetPos = Vector3.zero;
+        
         playerAttack = _player.GetComponent<PlayerStat>().Attack;
-        _damage = (int)((float)playerAttack * _attack);
+        extraAttack = _player.GetComponent<PlayerStat>().ExtraAttack;
+        _damage = (int)((float)(playerAttack + extraAttack) * _attack);
     }
     private void Start()
     {
         Init();
-        
     }
 
     public virtual void SetStat(int level)

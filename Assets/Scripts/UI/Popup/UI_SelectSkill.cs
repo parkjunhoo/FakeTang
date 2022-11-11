@@ -89,7 +89,6 @@ public class UI_SelectSkill : UI_Popup
         List<int> maxLevelActiveSkills = new List<int>();
         foreach (var entry in _activeSkillTree)
         {
-            
             if (_activeSkillTree[entry.Key] == 5) maxLevelActiveSkills.Add(entry.Key);
         }
 

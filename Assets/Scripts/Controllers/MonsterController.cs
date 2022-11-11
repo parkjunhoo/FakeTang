@@ -94,17 +94,27 @@ public class MonsterController : MonoBehaviour
         target.GetComponent<PlayerStat>().KillingCount++;
         target.GetComponent<PlayerStat>().Exp += _stat.Exp;
         Managers.Game.Despawn(gameObject);
+        
         if (Utill.RandomInHundred(10))
         {
             GameObject go = Managers.Game.Spawn(Define.WorldObject.Item, "Items/Coin");
             go.GetComponent<Coin>().setGold(_stat.Gold);
             go.transform.position = transform.position;
+            return;
         }
-        if (Utill.RandomInHundred(50))
+        if (Utill.RandomInHundred(1))
         {
             GameObject go = Managers.Game.Spawn(Define.WorldObject.Item, "Items/Shoes");
             go.transform.position = transform.position;
+            return;
         }
+        if (Utill.RandomInHundred(1))
+        {
+            GameObject go = Managers.Game.Spawn(Define.WorldObject.Item, "Items/Sword");
+            go.transform.position = transform.position;
+            return;
+        }
+
 
     }
 }

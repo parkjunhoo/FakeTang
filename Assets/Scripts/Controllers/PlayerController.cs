@@ -208,8 +208,12 @@ public class PlayerController : MonoBehaviour
             switch (entry.Key)
             {
                 case "Shoes":
-                    var data = JsonConvert.DeserializeObject<Data.Shoes>(Managers.Data.ItemInfoDict["Shoes"].value);
-                    _stat.ExtraSpeed = data.moveSpeed * entry.Value;
+                    var shoesData = JsonConvert.DeserializeObject<Data.Shoes>(Managers.Data.ItemInfoDict["Shoes"].value);
+                    _stat.ExtraSpeed = shoesData.moveSpeed * entry.Value;
+                    break;
+                case "Sword":
+                    var swordData = JsonConvert.DeserializeObject<Data.Sword>(Managers.Data.ItemInfoDict["Sword"].value);
+                    _stat.ExtraAttack = swordData.attack * entry.Value;
                     break;
             }
         }
