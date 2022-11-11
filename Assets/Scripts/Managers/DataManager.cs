@@ -30,6 +30,9 @@ public class DataManager
     public Dictionary<int, Data.SetelliteStat> SetelliteStatDict { get; private set; } = new Dictionary<int, Data.SetelliteStat>();
     #endregion
 
+
+    public Dictionary<string, Data.ItemInfo> ItemInfoDict { get; private set; } = new Dictionary<string, Data.ItemInfo>();
+
     public void Init()
     {
         PlayerStatDict = LoadJson<Data.PlayerStatData, int, Data.PlayerStat>("Players/PlayerStatData").MakeDict();
@@ -43,6 +46,9 @@ public class DataManager
         EnergyBoltStatDict = LoadJson<Data.EnergyBoltStatData , int, Data.EnergyBoltStat>("Skills/EnergyBoltStatData").MakeDict();
         UnnamedSkillStatDict = LoadJson<Data.UnnamedSkillStatData, int, Data.UnnamedSkillStat>("Skills/UnnamedSkillStatData").MakeDict();
         SetelliteStatDict = LoadJson<Data.SetelliteStatData, int, Data.SetelliteStat>("Skills/SetelliteStatData").MakeDict();
+
+
+        ItemInfoDict = LoadJson<Data.ItemInfoData, string, Data.ItemInfo>("Items/ItemInfos").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>

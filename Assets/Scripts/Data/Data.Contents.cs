@@ -1,7 +1,9 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using static PlayerController;
 
 namespace Data
@@ -175,6 +177,50 @@ namespace Data
         {
             Dictionary<int, SetelliteStat> dict = new Dictionary<int, SetelliteStat>();
             foreach (SetelliteStat stat in setelliteStats) dict.Add(stat.level, stat);
+            return dict;
+        }
+    }
+    #endregion
+
+    #endregion
+
+
+    #region ItemData
+
+    #region ItemData
+    [Serializable]
+    public class ItemInfo
+    {
+        public string code;
+        public string name;
+        public string subText;
+        public string value;
+    }
+
+
+    #region Value Class
+    public class Shoes
+    {
+        [JsonProperty("moveSpeed")]
+        public int moveSpeed { get; set; }
+    }
+    public class Sword
+    {
+        [JsonProperty("attack")]
+        public int attack { get; set; }
+    }
+    #endregion
+
+
+    [Serializable]
+    public class ItemInfoData : ILoader<string, ItemInfo>
+    {
+        public List<ItemInfo> itemInfos = new List<ItemInfo>();
+
+        public Dictionary<string, ItemInfo> MakeDict()
+        {
+            Dictionary<string, ItemInfo> dict = new Dictionary<string, ItemInfo>();
+            foreach (ItemInfo itemData in itemInfos) dict.Add(itemData.name, itemData);
             return dict;
         }
     }

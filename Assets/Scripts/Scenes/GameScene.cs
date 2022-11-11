@@ -1,9 +1,14 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
+using JetBrains.Annotations;
+using System;
 
 public class GameScene : BaseScene
 {
+
+
     public static GameScene Instance;
 
     Define.GameMode _gameMode = Define.GameMode.Playing;
@@ -41,7 +46,13 @@ public class GameScene : BaseScene
         Joystick.transform.SetParent(GameObject.FindGameObjectWithTag("Hud").transform, false);
         Joystick.transform.SetAsFirstSibling();
 
+
+
+        //var data = JsonConvert.DeserializeObject<Data.Shoes>(Managers.Data.ItemInfoDict["Shoes"].value);
+        //Debug.Log(data.moveSpeed);
+        
     }
+
     public override void Clear()
     {
         

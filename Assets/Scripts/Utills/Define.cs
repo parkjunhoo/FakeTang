@@ -59,8 +59,4 @@ public class Define : MonoBehaviour
         Flyingeye,
         Goblin,
     }
-    public enum Item
-    {
-        Coin,
-    }
 }
