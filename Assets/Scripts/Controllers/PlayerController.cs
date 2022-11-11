@@ -109,6 +109,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, rotationDir, 0));
         //if (Mathf.Abs(joyX) > 0.3 || Mathf.Abs(joyY) > 0.3) rigid.MovePosition(rigid.position + inputDir * _speed *  Time.deltaTime);
         rigid.MovePosition(rigid.position + inputDir * _stat.MoveSpeed *_stat.ExtraSpeed * Time.fixedDeltaTime);
+        Debug.Log(_stat.ExtraSpeed);
     }
 
     void Attack()
@@ -209,7 +210,7 @@ public class PlayerController : MonoBehaviour
             {
                 case "Shoes":
                     var shoesData = JsonConvert.DeserializeObject<Data.Shoes>(Managers.Data.ItemInfoDict["Shoes"].value);
-                    _stat.ExtraSpeed = shoesData.moveSpeed * entry.Value;
+                    _stat.ExtraSpeed = Mathf.Pow(shoesData.moveSpeed, entry.Value);
                     break;
                 case "Sword":
                     var swordData = JsonConvert.DeserializeObject<Data.Sword>(Managers.Data.ItemInfoDict["Sword"].value);

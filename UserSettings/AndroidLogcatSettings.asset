@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R3CM90DFDAT",
         "name": "com.DefaultCompany.FakeTang",
-        "processId": 16787,
+        "processId": 28634,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -54,6 +54,18 @@
             "deviceId": "R3CM90DFDAT",
             "name": "com.DefaultCompany.FakeTang",
             "processId": 16787,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CM90DFDAT",
+            "name": "com.DefaultCompany.FakeTang",
+            "processId": 25811,
+            "exited": false
+        },
+        {
+            "deviceId": "R3CM90DFDAT",
+            "name": "com.DefaultCompany.FakeTang",
+            "processId": 28634,
             "exited": false
         }
     ],
