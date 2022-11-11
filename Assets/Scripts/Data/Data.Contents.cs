@@ -194,6 +194,7 @@ namespace Data
         public string code;
         public string name;
         public string subText;
+        public int price;
         public string value;
     }
 
