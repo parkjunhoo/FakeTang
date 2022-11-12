@@ -81,7 +81,7 @@ public class UI_Merchant : UI_Popup
         Bind<Button>(typeof(Buttons));
         Bind<Image>(typeof(Images));
         Bind<GameObject>(typeof(GameObjects));
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _player = Managers.Game.Player;
         _playerStat = _player.GetComponent<PlayerStat>();
         _playerController = _player.GetComponent<PlayerController>();
 

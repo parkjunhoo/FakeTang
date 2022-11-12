@@ -47,7 +47,7 @@ public class UI_Hud : UI_Scene
     {
         base.Init();
         Instance = this;
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _player = Managers.Game.Player;
         _playerStat = _player.GetComponent<PlayerStat>();
         //////////////////////////////////////////////////////
         Bind<TextMeshProUGUI>(typeof(Texts));

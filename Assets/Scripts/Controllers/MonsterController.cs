@@ -24,7 +24,7 @@ public class MonsterController : MonoBehaviour
 
     void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _player = Managers.Game.Player;
         _stat = GetComponent<MonsterStat>();
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();

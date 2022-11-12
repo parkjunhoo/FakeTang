@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         Instance = this;
-        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        playerTransform = Managers.Game.Player.GetComponent<Transform>();
     }
 
 

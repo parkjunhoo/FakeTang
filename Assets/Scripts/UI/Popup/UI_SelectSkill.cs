@@ -44,7 +44,7 @@ public class UI_SelectSkill : UI_Popup
     public override void Init()
     {
         base.Init();
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _player = Managers.Game.Player;
         _activeSkillTree = _player.GetComponent<PlayerController>().ActiveSkillTree;
         while (_pickedSkill.Count < 3) //picked 스킬이 3개가 될때까지 뽑음
         {

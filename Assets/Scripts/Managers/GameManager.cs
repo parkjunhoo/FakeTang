@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager
 {
     GameObject _player;
+    public GameObject Player { get { return _player; } }
     //Dictionary<int, GameObject> _players = new Dictionary<int, GameObject>();
     //Dictionary<int, GameObject> _monsters = new Dictionary<int, GameObject>();
     HashSet<GameObject> _monsters = new HashSet<GameObject>();

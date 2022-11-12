@@ -54,7 +54,7 @@ public class UI_SelectSkillBtn : UI_Base
         LevelImages[3] = GetImage((int)Images.Level4);
         LevelImages[4] = GetImage((int)Images.Level5);
 
-        Dictionary<int, int> _activeSkillTree = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().ActiveSkillTree;
+        Dictionary<int, int> _activeSkillTree = Managers.Game.Player.GetComponent<PlayerController>().ActiveSkillTree;
         if (name != null)
         {
             GetMeshText((int)Texts.SelectSkillBtnText).text = _name;

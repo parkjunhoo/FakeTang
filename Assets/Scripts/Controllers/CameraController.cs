@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-
-    /// <summary>
-    /// dtdtdtdtd
-    /// </summary>
     GameObject _player = null;
     Camera _mainCamera = null;
     Vector3 _delta = new Vector3(0, 0, -10);
@@ -18,7 +14,7 @@ public class CameraController : MonoBehaviour
     {
         _mainCamera = GetComponent<Camera>();
         _mainCamera.orthographicSize = _size;
-        _player = GameObject.FindGameObjectWithTag("Player");
+        _player = Managers.Game.Player;
     }
     void LateUpdate()
     {
