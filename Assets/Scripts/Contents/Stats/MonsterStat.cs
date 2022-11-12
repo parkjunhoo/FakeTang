@@ -20,12 +20,18 @@ public class MonsterStat : Stat
     }
     private void Awake()
     {
+        Spawner.OnMonsterLevelUp -= OnLevelUp;
+        Spawner.OnMonsterLevelUp += OnLevelUp;
         monsterName = transform.root.name;
         int index = monsterName.IndexOf("(Clone)");
         if (index > 0) monsterName = monsterName.Substring(0, index);
     }
 
-    public void SetStat(int level)
+    void OnLevelUp()
+    {
+        SetStat(Spawner.MonsterLevel);
+    }
+    public void SetStat(int level, bool levelup = false)
     {
 
         switch (monsterName)
@@ -34,7 +40,7 @@ public class MonsterStat : Stat
                 Dictionary<int, Data.FlyingeyeStat> flyingeyeDict = Managers.Data.FlyingeyeDict;
                 Data.FlyingeyeStat flyingeyeStat = flyingeyeDict[level];
                 _level = flyingeyeStat.level;
-                _hp = flyingeyeStat.hp;
+                if(!levelup)_hp = flyingeyeStat.hp;
                 _maxHp = flyingeyeStat.maxHp;
                 _attack = flyingeyeStat.attack;
                 _defense = flyingeyeStat.defense;
@@ -47,7 +53,7 @@ public class MonsterStat : Stat
                 Dictionary<int, Data.GoblinStat> goblinDict = Managers.Data.GoblinDict;
                 Data.GoblinStat goblinStat = goblinDict[level];
                 _level = goblinStat.level;
-                _hp = goblinStat.hp;
+                if (!levelup) _hp = goblinStat.hp;
                 _maxHp = goblinStat.maxHp;
                 _attack = goblinStat.attack;
                 _defense = goblinStat.defense;
@@ -56,8 +62,6 @@ public class MonsterStat : Stat
                 _gold = goblinStat.gold;
                 break;
         }
-
-
     }
 
 }

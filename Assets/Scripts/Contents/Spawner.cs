@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
@@ -11,14 +13,25 @@ public class Spawner : MonoBehaviour
     int _merchantPercentage = 0;
     float _merchantSpawnRadius = 12.0f;
     bool isMerchantDelay = false;
+    bool isAfterSecond = false;
 
     [SerializeField]
     int _monsterCount = 0;
     public static int MonsterCount { get { return Instance._monsterCount; } set { Instance._monsterCount = value; } }
 
+    [SerializeField]
     int _monsterLevel = 1;
-    public static int MonsterLevel { get { return Instance._monsterLevel; } set { Instance._monsterLevel = value; } }
+    public static int MonsterLevel
+    {
+        get { return Instance._monsterLevel; }
+        set
+        {
+            OnMonsterLevelUp.Invoke();
+            Instance._monsterLevel = value;
+        }
+    }
 
+    public static Action OnMonsterLevelUp = null;
 
     [SerializeField]
     int _reserveCount = 0;
@@ -41,20 +54,26 @@ public class Spawner : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isMerchantDelay)
+        if (!isAfterSecond)
         {
-            isMerchantDelay = true;
-            _merchantPercentage++;
-            if (_merchantPercentage > 100) _merchantPercentage = 100;
-            if (Utill.RandomInHundred(_merchantPercentage))
+            isAfterSecond = true;
+            StartCoroutine(AfterSecond());
+            int countThirty = UI_Hud.TimerTime / 30;
+            if(_monsterLevel<10 && countThirty > _monsterLevel-1) MonsterLevel ++;
+            if (!isMerchantDelay)
             {
-                _merchantPercentage = 0;
-                SpawnMerchant();
+                isMerchantDelay = true;
+                _merchantPercentage++;
+                if (_merchantPercentage > 100) _merchantPercentage = 100;
+                if (Utill.RandomInHundred(_merchantPercentage))
+                {
+                    _merchantPercentage = 0;
+                    SpawnMerchant();
+                }
+                StartCoroutine(MerchantCount());
             }
-            StartCoroutine(MerchantCount());
+
         }
-        
-        
         while (_reserveCount + _monsterCount < _keepMonsterCount)
         {
             StartCoroutine(ReserveSpawn());
@@ -107,9 +126,14 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(10f);
         isMerchantDelay = false;
     }
+    IEnumerator AfterSecond()
+    {
+        yield return new WaitForSeconds(1f);
+        isAfterSecond = false;
+    }
 
 
-    void SpawnMerchant()
+        void SpawnMerchant()
     {
         Vector3 playerPosition = playerTransform.position;
 

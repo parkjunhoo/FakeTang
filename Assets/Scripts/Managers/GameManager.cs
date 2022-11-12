@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class GameManager
     //Dictionary<int, GameObject> _monsters = new Dictionary<int, GameObject>();
     HashSet<GameObject> _monsters = new HashSet<GameObject>();
     HashSet<GameObject> _items = new HashSet<GameObject>();
+
+
 
     public GameObject Spawn(Define.WorldObject type, string path , Transform parent = null)
     {

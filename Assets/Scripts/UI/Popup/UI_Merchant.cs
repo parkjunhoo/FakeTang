@@ -160,6 +160,7 @@ public class UI_Merchant : UI_Popup
             if (_playerController.ItemTree.TryGetValue(SelectItem.name, out itemCount)) _playerController.ItemTree[SelectItem.name] = itemCount + 1;
             else _playerController.ItemTree.Add(SelectItem.name, 1);
             _playerStat.Gold -= SelectItem.price;
+            UI_Hud.Instance.RefreshGold();
             _playerController.itemApply();
             SelectBtn.GetComponent<Button>().interactable = false;
             ChildrenSetFalse(SelectBtn.transform);
