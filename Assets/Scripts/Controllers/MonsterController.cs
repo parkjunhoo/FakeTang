@@ -90,7 +90,7 @@ public class MonsterController : MonoBehaviour
 
     void OnDie()
     {
-        MonsterSpawner.MonsterCount--;
+        Spawner.MonsterCount--;
         target.GetComponent<PlayerStat>().KillingCount++;
         target.GetComponent<PlayerStat>().Exp += _stat.Exp;
         Managers.Game.Despawn(gameObject);

@@ -28,6 +28,8 @@ public class UI_Merchant : UI_Popup
     PlayerStat _playerStat;
     PlayerController _playerController;
 
+    GameObject _merchant;
+
     
 
     
@@ -47,12 +49,19 @@ public class UI_Merchant : UI_Popup
 
         ConfirmBtn,
         CancelBtn,
+
+        StayBtn,
+        QuitBtn,
     }
     GameObject itemBtn1;
     GameObject itemBtn2;
 
     GameObject ConfirmBtn;
     GameObject CancelBtn;
+
+    GameObject CloseBtn;
+    GameObject StayBtn;
+    GameObject QuitBtn;
     public enum Images
     {
         ItemBtnIcon1,
@@ -60,9 +69,11 @@ public class UI_Merchant : UI_Popup
     }
     public enum GameObjects
     {
-        ConfirmBackground
+        ConfirmBackground,
+        QuitBackground,
     }
     GameObject confirmPopup;
+    GameObject quitPopup;
     public override void Init()
     {
         base.Init();
@@ -93,19 +104,25 @@ public class UI_Merchant : UI_Popup
 
 
         GetImage((int)Images.ItemBtnIcon1).sprite = Managers.Resource.Load<GameObject>($"Prefabs/Items/{_pickedItems[0].name}").GetComponent<SpriteRenderer>().sprite;
-        //GetImage((int)Images.ItemBtnIcon1).sprite = Resources.Load<GameObject>($"Prefabs/Items/{_pickedItems[0].name}").GetComponent<Image>().sprite;
         GetMeshText((int)Texts.ItemBtnPriceText1).text = _pickedItems[0].price.ToString()+"G";
         GetImage((int)Images.ItemBtnIcon2).sprite = Managers.Resource.Load<GameObject>($"Prefabs/Items/{_pickedItems[1].name}").GetComponent<SpriteRenderer>().sprite;
-        //GetImage((int)Images.ItemBtnIcon2).sprite = Resources.Load<GameObject>($"Prefabs/Items/{_pickedItems[1].name}").GetComponent<Image>().sprite;
         GetMeshText((int)Texts.ItemBtnPriceText2).text = _pickedItems[1].price.ToString()+"G";
 
         confirmPopup = GetObject((int)GameObjects.ConfirmBackground);
         confirmPopup.SetActive(false);
+        quitPopup = GetObject((int)GameObjects.QuitBackground);
+        quitPopup.SetActive(false);
+
         itemBtn1 = GetButton((int)Buttons.ItemBtn1).gameObject;
         itemBtn2 = GetButton((int)Buttons.ItemBtn2).gameObject;
 
         ConfirmBtn = GetButton((int)Buttons.ConfirmBtn).gameObject;
         CancelBtn = GetButton((int)Buttons.CancelBtn).gameObject;
+
+        CloseBtn = GetButton((int)Buttons.CloseBtn).gameObject;
+        StayBtn = GetButton((int)Buttons.StayBtn).gameObject;
+        QuitBtn = GetButton((int)Buttons.QuitBtn).gameObject;
+
 
 
         BindEvent(itemBtn1, (PointerEnterEvent) =>
@@ -149,14 +166,26 @@ public class UI_Merchant : UI_Popup
             Destroy(SelectBtn.GetComponent<UI_EventHandler>());
             confirmPopup.SetActive(false);
         });
+
+
         BindEvent(CancelBtn, (pointerEventData) =>
         {
             confirmPopup.SetActive(false);
         });
 
-        BindEvent(Get<Button>((int)Buttons.CloseBtn).gameObject, (PointerEventData) =>
+        BindEvent(CloseBtn, (PointerEventData) =>
         {
+            quitPopup.SetActive(true);
+        });
+        BindEvent(StayBtn, (pointerEventData) =>
+        {
+            quitPopup.SetActive(false);
+        });
+        BindEvent(QuitBtn, (pointerEventData) =>
+        {
+            quitPopup.SetActive(false);
             Managers.UI.ClosePopupUI();
+            Managers.Game.Despawn(_merchant);
         });
 
 
@@ -183,5 +212,8 @@ public class UI_Merchant : UI_Popup
         }
     }
 
-
+    public void SetMerchant(GameObject go)
+    {
+        _merchant = go;
+    }
 }

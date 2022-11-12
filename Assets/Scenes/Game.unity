@@ -18403,7 +18403,7 @@ GameObject:
   - component: {fileID: 1901919629}
   - component: {fileID: 1901919630}
   m_Layer: 0
-  m_Name: MonsterSpawner
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18436,6 +18436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a987d6e76df67e24fa5c8f5ff98120e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _merchantPercentage: 0
   _monsterCount: 0
   _reserveCount: 0
   _keepMonsterCount: 10
@@ -18502,82 +18503,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1149396214118315910
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2145533924734396347, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145533924734396347, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145533924734396347, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145533924734396347, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145533924734396347, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145533924734396347, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145533924734396347, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145533924734396347, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145533924734396347, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145533924734396347, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145533924734396347, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2646681240772706799, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.6751194
-      objectReference: {fileID: 0}
-    - target: {fileID: 2646681240772706799, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3342798251376274134, guid: 645a46cab7c35724b8ba06c5a2f1a2cb,
-        type: 3}
-      propertyPath: m_Name
-      value: Merchant
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 645a46cab7c35724b8ba06c5a2f1a2cb, type: 3}

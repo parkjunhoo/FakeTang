@@ -81,6 +81,7 @@ public class UIManager
         go.transform.SetParent(Root.transform);
         return popup;
     }
+
     public void ClosePopupUI(UI_Popup popup)
     {
         if (_popupStack.Count == 0) return;

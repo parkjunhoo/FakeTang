@@ -8,7 +8,7 @@ public class Merchant : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Managers.UI.ShowPopupUI<UI_Merchant>();
+            Managers.UI.ShowPopupUI<UI_Merchant>().SetMerchant(gameObject);
         }
     }
 }
