@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.TextCore.Text;
@@ -21,7 +22,7 @@ public class UI_Merchant : UI_Popup
     ItemInfo[] _pickedItems = new ItemInfo[2];
 
     public ItemInfo SelectItem;
-
+    GameObject SelectBtn;
     
     GameObject _player;
     PlayerStat _playerStat;
@@ -93,10 +94,10 @@ public class UI_Merchant : UI_Popup
 
         GetImage((int)Images.ItemBtnIcon1).sprite = Managers.Resource.Load<GameObject>($"Prefabs/Items/{_pickedItems[0].name}").GetComponent<SpriteRenderer>().sprite;
         //GetImage((int)Images.ItemBtnIcon1).sprite = Resources.Load<GameObject>($"Prefabs/Items/{_pickedItems[0].name}").GetComponent<Image>().sprite;
-        GetMeshText((int)Texts.ItemBtnPriceText1).text = _pickedItems[0].price.ToString();
+        GetMeshText((int)Texts.ItemBtnPriceText1).text = _pickedItems[0].price.ToString()+"G";
         GetImage((int)Images.ItemBtnIcon2).sprite = Managers.Resource.Load<GameObject>($"Prefabs/Items/{_pickedItems[1].name}").GetComponent<SpriteRenderer>().sprite;
         //GetImage((int)Images.ItemBtnIcon2).sprite = Resources.Load<GameObject>($"Prefabs/Items/{_pickedItems[1].name}").GetComponent<Image>().sprite;
-        GetMeshText((int)Texts.ItemBtnPriceText2).text = _pickedItems[1].price.ToString();
+        GetMeshText((int)Texts.ItemBtnPriceText2).text = _pickedItems[1].price.ToString()+"G";
 
         confirmPopup = GetObject((int)GameObjects.ConfirmBackground);
         confirmPopup.SetActive(false);
@@ -109,19 +110,29 @@ public class UI_Merchant : UI_Popup
 
         BindEvent(itemBtn1, (PointerEnterEvent) =>
         {
-            if (_playerStat.Gold < _pickedItems[0].price) return; // 진동 애니메이션 추가해서 못산다고 전달?
+            if (_playerStat.Gold < _pickedItems[0].price)
+            {
+                itemBtn1.GetComponent<Animator>().Play("VIVE");
+                return;
+            }
             else
             {
                 SelectItem = _pickedItems[0];
+                SelectBtn = itemBtn1;
                 confirmPopup.SetActive(true);
             }
         });
         BindEvent(itemBtn2, (PointerEnterEvent) =>
         {
-            if (_playerStat.Gold < _pickedItems[1].price) return; // 진동 애니메이션 추가해서 못산다고 전달?
+            if (_playerStat.Gold < _pickedItems[1].price)
+            {
+                itemBtn2.GetComponent<Animator>().Play("VIVE");
+                return;
+            }
             else
             {
                 SelectItem = _pickedItems[1];
+                SelectBtn = itemBtn2;
                 confirmPopup.SetActive(true);
             }
         });
@@ -129,10 +140,13 @@ public class UI_Merchant : UI_Popup
         BindEvent(ConfirmBtn, (PointerEventData) =>
         {
             int itemCount;
-            if(_playerController.ItemTree.TryGetValue(SelectItem.name , out itemCount)) _playerController.ItemTree[SelectItem.name] = itemCount + 1;
+            if (_playerController.ItemTree.TryGetValue(SelectItem.name, out itemCount)) _playerController.ItemTree[SelectItem.name] = itemCount + 1;
             else _playerController.ItemTree.Add(SelectItem.name, 1);
             _playerStat.Gold -= SelectItem.price;
             _playerController.itemApply();
+            SelectBtn.GetComponent<Button>().interactable = false;
+            ChildrenSetFalse(SelectBtn.transform);
+            Destroy(SelectBtn.GetComponent<UI_EventHandler>());
             confirmPopup.SetActive(false);
         });
         BindEvent(CancelBtn, (pointerEventData) =>
@@ -159,6 +173,14 @@ public class UI_Merchant : UI_Popup
         _pickedNums.Add(rand);
         string[] items = Enum.GetNames(typeof(Define.Item));
         return items[rand];
+    }
+    
+    void ChildrenSetFalse(Transform transform)
+    {
+        for(int i=0; i<transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
     }
 
 
