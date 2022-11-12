@@ -210,6 +210,11 @@ namespace Data
         [JsonProperty("attack")]
         public int attack { get; set; }
     }
+    public class VampireRing
+    {
+        [JsonProperty("drain")]
+        public float drain { get; set; }
+    }
     #endregion
 
 

@@ -16,6 +16,7 @@ public class PlayerStat : Stat
 
     float _extraSpeed = 1f;
     int _extraAttack = 0;
+    float _drain = 0f;
 
 
     public int Exp
@@ -32,6 +33,7 @@ public class PlayerStat : Stat
 
     public float ExtraSpeed { get { return _extraSpeed; } set { _extraSpeed = value; } }
     public int ExtraAttack { get { return _extraAttack; } set { _extraAttack = value; } }
+    public float Drain { get { return _drain; } set { _drain = value; } }
     public int MaxExp { get { return _maxExp; } set { _maxExp = value; } }
     public int Gold { get { return _gold; } set { _gold = value; } }
     public int KillingCount { get { return _killingCount; } set { _killingCount = value; } }

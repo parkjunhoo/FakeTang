@@ -7,7 +7,7 @@ public class MonsterController : MonoBehaviour
 {
     MonsterStat _stat;
     Rigidbody2D rigid;
-    GameObject target;
+    GameObject _player;
     Animator anim;
 
     bool DyingMessage = false;
@@ -24,7 +24,7 @@ public class MonsterController : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag("Player");
         _stat = GetComponent<MonsterStat>();
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -70,10 +70,10 @@ public class MonsterController : MonoBehaviour
 
     void Move()
     {
-        if (target == null) target = GameObject.FindGameObjectWithTag("Player");
+        if (_player == null) _player = GameObject.FindGameObjectWithTag("Player");
         else if (_state != MonsterState.Die)
         {
-            Vector2 inputDir = (target.transform.position - transform.position).normalized;
+            Vector2 inputDir = (_player.transform.position - transform.position).normalized;
 
             float rotationDir = inputDir.x > 0 ? 0 : 180;
             transform.rotation = Quaternion.Euler(new Vector3(0, rotationDir, 0));
@@ -85,14 +85,24 @@ public class MonsterController : MonoBehaviour
     {
         _stat.Hp -= damage;
         Managers.UI.MakeWorldSpaceUI<UI_DamageText>(transform).damage = damage;
+        PlayerStat playerStat = _player.GetComponent<PlayerStat>();
+        if (playerStat.Drain > 0f)
+        {
+            int drainAmount = (int)((float)damage * playerStat.Drain);
+            if(drainAmount > 0 && playerStat.MaxHp - playerStat.Hp > 0)
+            {
+                playerStat.Hp = Mathf.Clamp(playerStat.Hp + drainAmount, 0, playerStat.MaxHp);
+                Managers.UI.MakeWorldSpaceUI<UI_DamageText>(_player.transform).damage = drainAmount;
+            }
+        }
         if (_stat.Hp <= 0) {  _state = MonsterState.Die;  }
     }
 
     void OnDie()
     {
         Spawner.MonsterCount--;
-        target.GetComponent<PlayerStat>().KillingCount++;
-        target.GetComponent<PlayerStat>().Exp += _stat.Exp;
+        _player.GetComponent<PlayerStat>().KillingCount++;
+        _player.GetComponent<PlayerStat>().Exp += _stat.Exp;
         Managers.Game.Despawn(gameObject);
         
         if (Utill.RandomInHundred(10))

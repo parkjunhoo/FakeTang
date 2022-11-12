@@ -19,18 +19,14 @@ public class PlayerController : MonoBehaviour
     
     public Dictionary<string,int> ItemTree = new Dictionary<string, int>();
 
-
-
     PlayerStat _stat;
     Rigidbody2D rigid;
     Animator anim;
 
-
     bool isEnergyBoltCool = false;
     bool isUnnamedSkillCool = false;
     bool isSetelliteCool = false;
-    public int setelliteCount;
-
+    public int setelliteCount = 0;
 
     float damageDelay = 0.3f;
     bool isDamageDelay = false;
@@ -109,7 +105,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, rotationDir, 0));
         //if (Mathf.Abs(joyX) > 0.3 || Mathf.Abs(joyY) > 0.3) rigid.MovePosition(rigid.position + inputDir * _speed *  Time.deltaTime);
         rigid.MovePosition(rigid.position + inputDir * _stat.MoveSpeed *_stat.ExtraSpeed * Time.fixedDeltaTime);
-        Debug.Log(_stat.ExtraSpeed);
+        
     }
 
     void Attack()
@@ -215,6 +211,10 @@ public class PlayerController : MonoBehaviour
                 case "Sword":
                     var swordData = JsonConvert.DeserializeObject<Data.Sword>(Managers.Data.ItemInfoDict["Sword"].value);
                     _stat.ExtraAttack = swordData.attack * entry.Value;
+                    break;
+                case "VampireRing":
+                    var vampireRingData = JsonConvert.DeserializeObject<Data.VampireRing>(Managers.Data.ItemInfoDict["VampireRing"].value);
+                    _stat.Drain = Mathf.Pow(vampireRingData.drain, entry.Value);
                     break;
             }
         }

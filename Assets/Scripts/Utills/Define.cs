@@ -63,5 +63,6 @@ public class Define : MonoBehaviour
     {
         Shoes,
         Sword,
+        VampireRing,
     }
 }

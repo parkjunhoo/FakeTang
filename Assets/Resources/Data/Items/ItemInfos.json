@@ -5,7 +5,7 @@
             "name": "Shoes",
             "subText":"Increase MoveSpeed.",
             "price":"100",
-            "value": "{'moveSpeed':'1.02'}"
+            "value": "{'moveSpeed':'1.03'}"
         },
         {
             "code": "1",
@@ -13,6 +13,13 @@
             "price":"100",
             "subText":"Increase Attack.",
             "value": "{'attack':'5'}"
+        },
+        {
+            "code": "2",
+            "name": "VampireRing",
+            "price":"300",
+            "subText":"Drains a certain amount of damage as HP.",
+            "value": "{'drain':'0.03'}"
         }
     ]
 }
